@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <h1>Are you sure you want to delete this note?</h1>
+
+
+    <article class="message">
+      <div class="message-header">
+        <p>Note {{ note.id }}</p>
+      </div>
+      <div class="message-body">
+        {{ note.content }}
+
+        <div class="tags has-addons is-pulled-right">
+            <span class="tag is-dark">Created On</span>
+            <span class="tag is-white">{{ note.created_on }}</span>
+        </div>
+      </div>
+    </article>
+
+    <form action="/delete/{{note.id}}" method="post">
+        <p><input type="submit" value="Yes, Delete it" class="button is-danger"/></p>
+    </form>
+
+{% endblock %}
