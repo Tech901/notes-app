@@ -1,20 +1,15 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
+<h1>📝Notes list</h1>
 
-    <h1>Hello {{ name }}!</h1>
-
-    {% for id, content, date in notes %}
-        <h2>Note {{id}}</h2>
-        <p>
-            {{ content }}
-            <a class="button is-text is-pulled-right"
-               href="/delete/{{id}}">Delete</a>
-        </p>
-        <div class="tags has-addons">
-            <span class="tag is-warning">Created On</span>
-            <span class="tag is-light">{{ date }}</span>
-        </div>
-        <hr/>
-    {% endfor %}
-
-{% endblock %}
+{% for id, content, date in notes %}
+<h2>Note {{ id }}</h2>
+<p>
+  {{ content }}
+  <a href="/delete/{{ id }}" class="button is-text is-pulled-right">Delete</a>
+</p>
+<div class="tags has-addons">
+  <span class="tag is-warning">Created On</span>
+  <span class="tag is-light">{{ date }}</span>
+</div>
+<hr />
+{% endfor %} {% endblock %}
